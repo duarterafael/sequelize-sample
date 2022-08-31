@@ -221,6 +221,7 @@ node app.js
 ```
 ![](./Images/19.png "")
 24. Como retorno teremos a mensagem 'Conectado com sucesso'. Indicando assim que conseguirmos conectar nossa aplicação NodeJS com banco de dados MySQL. Como dito anteriormente, a mensagem de sucesso é impressa por ser executado o código da cláusula then da promisse. 
+
 ![](./Images/20.png "")
 
     24.1. Caso coloquemos um nome de um banco de dados que não existe (indicado pela seta 1 na imagem), não seria possível conectar com o banco de dados já que o mesmo não existe. Logo o código que será executado é da cláusula catch sendo exibido uma mensagem de erro como apresentado na imagem a baixo.
