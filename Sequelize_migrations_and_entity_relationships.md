@@ -118,6 +118,8 @@ Ao final pressione a tecla Enter.
 ![](./Images/4.png "")
 
 6. Verifique que o arquivo [packege.json](https://docs.npmjs.com/cli/v8/configuring-npm/package-json) foi criado na pasta sequelize-sample. 
+
+
 ![](./Images/5.png "")
 
 7. Abra o projeto criado no Visual Strudio Code. 
@@ -264,6 +266,8 @@ Como pode ser visto no modelo entidade relacional abaixo, além dos modelos cita
 ![](./Images/23.png "")
 
 Agora que entendemos nosso requisito vamos criar os modelos e suas relação via Javascript no NodeJS e por meio de Sequelize será criado o esquema do banco de dados automaticamente.
+
+
 ![](./Images/pensador.gif "")
 
 ### Criando nossas tabelas no NodeJS.
@@ -413,6 +417,8 @@ Ao executar o comando será realizado a instanciação dos modelos com seus resp
 ![](./Images/30.png "")
 
 32. Abra o Workbench e clique no ícone de atualização (destacado pela seta 1 na imagem). Ao expandir a tabela alocação (destacado pela seta 2 na imagem) é possível visualizar duas novas colunas ProfessorId e DisiciplinaId (destacado pela seta 3 na imagem) e, além disso, as restrições (*constraints*) de chave estrangeiras para essa duas colunas (destacado pela seta 4 na imagem). O mesmo ocorre para a tabela professor (destacado pela seta 6 na imagem) que possui uma nova coluna chamada DepartamentoId (destacado pela seta 7 na imagem) que possui uma restrição de chave estrangeira para tabela Departamento.
+
+
 ![](./Images/31.png "")
 
 ![](./Images/party%202.gif "")
