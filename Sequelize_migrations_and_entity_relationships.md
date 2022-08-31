@@ -81,12 +81,14 @@ cd <caminho para pasta desejada>
 
 ```
 ![](./Images/1.png "")
+
 3. Via no prompt de comando execute o comando:
 ```
 mkdir sequelize-sample
 ```
 Esse comando criará a pasta sequelize-sample que conterá todos o código deste módulo.
 Acesse o windows explorer e verifique se a pasta foi criada no local desejado.
+
 ![](./Images/2.png "")
 4. Via no prompt de comando execute o comando para acessa a pasta sequelize-sample:
 ```
