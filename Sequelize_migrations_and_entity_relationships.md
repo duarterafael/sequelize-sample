@@ -90,6 +90,7 @@ Esse comando criará a pasta sequelize-sample que conterá todos o código deste
 Acesse o windows explorer e verifique se a pasta foi criada no local desejado.
 
 ![](./Images/2.png "")
+
 4. Via no prompt de comando execute o comando para acessa a pasta sequelize-sample:
 ```
 cd sequelize-sample
@@ -209,10 +210,14 @@ sequelize.authenticate()
 Explicando linha a linha do código-fonte:
 - A linha 1 importa as dependências do Sequelize. Necessários para a conexão com banco de dados.
 - As linhas 3 a 6 instancia um objeto da classe Sequelize. Onde são passados 4 parâmetros, sendo:
-    - O nome do [banco de dados criado anteriormente](#CriandoBDMySQL).
-    - Usuário do banco de dados MySQL.
-    - Senha do banco de dados MySQL.
-    - Um objeto que contem o host e o dialeto. Como estamos executando localmente, o valor de host será localhost e o dialeto será mysql. Caso deseje conectar em outro banco de dados acesse a [documentação do Sequelize](https://sequelize.org/docs/v6/other-topics/dialect-specific-things/) para identificar o dialeto especifico.
+    
+    - O nome do [banco de dados criado anteriormente](#CriandoBDMySQL).
+    
+    - Usuário do banco de dados MySQL.
+    
+    - Senha do banco de dados MySQL.
+    
+    - Um objeto que contem o host e o dialeto. Como estamos executando localmente, o valor de host será localhost e o dialeto será mysql. Caso deseje conectar em outro banco de dados acesse a [documentação do Sequelize](https://sequelize.org/docs/v6/other-topics/dialect-specific-things/) para identificar o dialeto especifico.
 - As linhas 8 a 14 é chamado o método authenticate a partir do objeto criado anteriormente. Esse método tentará conectar com banco de dados. O authenticate retorna uma promisse. Onde caso a conexão com o banco de dados ocorra corretamente, será executado o código da cláusula then, caso a conexão falhe, será executado o código da cláusula catch.
 ![](./Images/18.png "")
 
@@ -246,22 +251,37 @@ Eu, como administrador do sistema, quero armazenar o nome e a caraga horaria das
 Ao ler a história de usuário é possível identificar de alguns modelos, são eles:
 
 - Professor, com os campos:
-    - Nome
-    - E-mail
+    
+    - Nome
+    
+    - E-mail
+
 - Departamento, com os campos:
-    - Nome
-    - Sigla
+    
+    - Nome
+    
+    - Sigla
+
 - Disciplina, com os campos:
-    - Nome
-    - Carga horária
+    
+    - Nome
+    
+    - Carga horária
+
 - Alocação, com os campos:
-    - Horário de início
-    - Horário de final
+    
+    - Horário de início
+    
+    - Horário de final
+
 Como pode ser visto no modelo entidade relacional abaixo, além dos modelos citados, há relacionamentos entre eles. Que são:
 - Um departamento pode possuir nenhum (cardinalidade mínima 0) ou vários professores associados (cardinalidade máxima N).
-    - Por sua vez, um professor só está associado a um departamento. Sendo obrigado informar um departamento na criação de um professor. Tendo assim a cardinalidade mínima e máxima 1.
+    
+- Por sua vez, um professor só está associado a um departamento. Sendo obrigado informar um departamento na criação de um professor. Tendo assim a cardinalidade mínima e máxima 1.
+
 - Uma alocação representa a relação entre os modelos professor e disciplina. Sendo assim, um professor pode ter nenhuma alocação para uma disciplina (cardinalidade mínima 0) ou várias alocações (cardinalidade máxima N).
-    - Por sua vez, uma disciplina pode ter nenhuma alocação para um professor (cardinalidade mínima 0) ou várias alocações (cardinalidade  máxima N).
+    
+- Por sua vez, uma disciplina pode ter nenhuma alocação para um professor (cardinalidade mínima 0) ou várias alocações (cardinalidade  máxima N).
 
 ![](./Images/23.png "")
 
@@ -371,12 +391,6 @@ As colunas *createdAt* e *updatedAt* tem fins de auditoria, sendo gerenciadas au
         }
       }
   })
-  
-  Departamento.hasMany(Professor, {
-    foreignKey: {
-      allowNull: false
-    }
-  })
 ```
 ![](./Images/27.png "")
 
@@ -405,8 +419,11 @@ Agora que temos as tabelas precisamos definir o relacionamento entre elas.
   Professor.belongsToMany(Disciplina, { through: Alocacao });
   Disciplina.belongsToMany(Professor, { through: Alocacao });
 ```
-O código a seguir define os relacionamentos citados sessão que [explicamos os requisitos](#EntendendoRequisitos), onde:- Um departamento tem muitos professores (método has many indicando a cardinalidade máxima N) e o campo allowNull false do objeto foreignKey não permite a criação de um professor sem um departamento associado (indicando assim a cardinalidade mínima 0).
-A associação belongsToMany utilizada entre professor e disciplina indica o relacionamento N:M entre essas duas atividades por meio da tabela-relacionamento Alocacao. Para mais informações sobre as associação entre tabelas acesse a documentação do [Sequelize](https://sequelize.org/docs/v6/core-concepts/assocs/).
+O código a seguir define os relacionamentos citados sessão que [explicamos os requisitos](#EntendendoRequisitos), onde:
+
+- Um departamento tem muitos professores (método has many indicando a cardinalidade máxima N) e o campo allowNull false do objeto foreignKey não permite a criação de um professor sem um departamento associado (indicando assim a cardinalidade mínima 1).
+
+- A associação belongsToMany utilizada entre professor e disciplina indica o relacionamento N:M entre essas duas atividades por meio da tabela-relacionamento Alocacao. Para mais informações sobre as associação entre tabelas acesse a documentação do [Sequelize](https://sequelize.org/docs/v6/core-concepts/assocs/).
 ![](./Images/29.png "")
 
 31. Execute novamente o comando:
