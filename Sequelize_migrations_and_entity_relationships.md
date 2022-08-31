@@ -96,6 +96,7 @@ cd sequelize-sample
 
 ```
 ![](./Images/3.png "")
+
 5. Via prompt de comando execute o comando [npm init](https://docs.npmjs.com/cli/v8/commands/npm-init):
 ```
 npm init
@@ -113,6 +114,7 @@ author: <Informe seu nome como autor>
 license: (ISC) MIT
 ```
 Ao final pressione a tecla Enter.
+
 ![](./Images/4.png "")
 
 6. Verifique que o arquivo [packege.json](https://docs.npmjs.com/cli/v8/configuring-npm/package-json) foi criado na pasta sequelize-sample. 
@@ -139,6 +141,7 @@ npm i sequelize
 npm install --save mysql2
 ```
 ![](./Images/9.png "")
+
 Caso queira conectar em outro banco de dados estes são os disponíveis. 
 ```
 $ npm install --save pg pg-hstore # Postgres
@@ -181,7 +184,9 @@ Agora que temos nosso banco de dados podemos realizar a conexão com NodeJS.
 ### Conectando uma aplicação NodeJs com banco de dados relacional
 19. Abra o edito Visual Studio Code na pasta raiz do projeto.
 20. Clique no ícone para criar um arquivo (destacado pela seta 1 na imagem). Em seguida, renomeie o arquivo como app.js (indicado pela seta 2 na imagem) e pressione a tecla Enter. 
+
 ![](./Images/17.png "")
+
 21. Abra o arquivo app.js e escreva o código a seguir:
 ```
 const { Sequelize, DataTypes } = require('sequelize');
@@ -217,10 +222,13 @@ node app.js
 ![](./Images/19.png "")
 24. Como retorno teremos a mensagem 'Conectado com sucesso'. Indicando assim que conseguirmos conectar nossa aplicação NodeJS com banco de dados MySQL. Como dito anteriormente, a mensagem de sucesso é impressa por ser executado o código da cláusula then da promisse. 
 ![](./Images/20.png "")
+
     24.1. Caso coloquemos um nome de um banco de dados que não existe (indicado pela seta 1 na imagem), não seria possível conectar com o banco de dados já que o mesmo não existe. Logo o código que será executado é da cláusula catch sendo exibido uma mensagem de erro como apresentado na imagem a baixo.
     ![](./Images/21.png "")
+    
     24.2 Outro exemplo de mensagem de erro é caso a senha informada esteja errada (indicado pela seta 1 na imagem) como pode ser visto na imagem a abaixo.
     ![](./Images/22.png "")
+    
 Conseguirmos realizar nossa primeira conexão com banco de dados!!! Agora vamos criar tabelas via nossa aplicação NodeJS.
     ![](./Images/party.webp "")
 
@@ -407,7 +415,9 @@ Ao executar o comando será realizado a instanciação dos modelos com seus resp
 ![](./Images/31.png "")
 
 ![](./Images/party%202.gif "")
+
 Assim finalizamos esse módulo. Onde aprendemos:
+
 - Conceitos de ORM;
 - O que Sequelize;
 - Como conectar em banco de dados relacional com Sequelize;
