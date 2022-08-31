@@ -9,7 +9,7 @@ Muitas aplicações utilizando o armazenamento em bancos de dados.
 ## O que vamos aprender?
 É bem comum que aplicações precisem armazenar informações. Para isso, existem várias formas de armazenamentos. Em memória, por exemplo em uma lista de objetos, porém se aplicação for desligadas os dados serão perdidos. Em sistemas de arquivos, porém consultar informações podem ser lentas a depender do tamanho do arquivo. Entre tantas outras formas de armazenamento de informações, é frequentemente a utilização de bancos de dados relacionais para o armazenamento de informações de uma aplicação. Sendo assim, o objetivo desse módulo é aprender como uma aplicação NodeJS pode interagir com um banco de dados relacional. 
 
-### Conhecimentos previos
+### Conhecimentos prévios
 A seguir são listados os principais conhecimentos necessários para o entendimento deste módulo. Caso não esteja familiarizado com algum desses conceitos seria legal dar uma olhadinha antes de prosseguir.
 - [Orientação a objetos](https://www.alura.com.br/conteudo/javascritpt-orientacao-objetos?gclid=CjwKCAjwu5yYBhAjEiwAKXk_eEmNz10UeR5rrV30Cwb-feU5xnIF7BECGyTM2fr6ZitGo-LPlIzZzhoCW10QAvD_BwE)
 - [Banco de dados relacionais](https://www.oracle.com/br/database/what-is-a-relational-database/)
@@ -17,7 +17,7 @@ A seguir são listados os principais conhecimentos necessários para o entendime
     - [Tabelas e relacionamento entre tabelas](https://www.juliobattisti.com.br/artigos/office/modelorelacional_p2.asp)
     - [Chave primaria e estrangeira](https://www.devmedia.com.br/sql-aprenda-a-utilizar-a-chave-primaria-e-a-chave-estrangeira/37636)
     - [Modelo Entidade Relacional](https://sites.google.com/site/uniplibancodedados1/aulas/aula-4---modelo-entidade-e-relacionamentos)
-- [Gestão de dependencias via npm](https://www.luiztools.com.br/post/como-gerenciar-dependencias-entre-projetos-node-js/).
+- [Gestão de dependências via npm](https://www.luiztools.com.br/post/como-gerenciar-dependencias-entre-projetos-node-js/).
 - [Conceitos básicos de Javascript](https://canaltech.com.br/software/Fundamentos-do-JavaScript-o-que-sao-e-como-funcionam-as-funcoes/).
 
 ### Ferramentas
@@ -28,7 +28,7 @@ A seguir são listadas as ferramentas que devem ser previamente instaladas. Ao c
 - [Visual Studio code](https://code.visualstudio.com/download)
 
 ## Problema
-Imagine que você foi contratado para construir um sistema para uma instituição de ensino em faculdades que precisa cadastrar todos os seus departamentos, professores e disciplinas. Essas informações precisam estar armazenadas em algum lugar? Sim! E este lugar será um banco de dados. A única exigência da empresa é que o banco dados seja MySql e a aplicação seja implementada em NodeJS.
+Imagine que você foi contratado para construir um sistema para uma instituição de ensino em faculdades que precisa cadastrar todos os seus departamentos, professores e disciplinas. Essas informações precisam estar armazenadas em algum lugar? Sim! E este lugar será um banco de dados. A única exigência da empresa é que o banco de dados seja MySql e a aplicação seja implementada em NodeJS.
 
 Existe uma linguagem própria para manipulação da estrutura de um banco de dados no SQL. A DDL (do inglês: *Data Definition Language*) ou Linguagem de Definição de Dados que permite definir e manipular tabelas e outros elementos do esquema de banco de dados. Entretanto, muitos programadores não consideram uma boa prática utilizar código escritos de SQL dentro de sua aplicação.
 
@@ -71,7 +71,7 @@ Como pode ser visto na figura 01 o Sequelize fará o mapeamento entre o objeto D
 Vamos criar uma aplicação em nodeJS para praticar os conceitos do Sequelize, mas primeiro precisamos criar nosso projeto.
 
 ### Criando nosso projeto
-Os passos a seguir ensinam como criar e configurar todo o nosso projeto apartir do 0. Sugirimos fortemente seguir o passo a passo para aqueles que não conhecem como criar um projeto NodeJS e configurar dependecias externas via NPM. Para aqueles que já tem esse conhecimento podem baixar o projeto [aqui](./project/sequelize-sample-initial.zip). Para executar o projeto descompacte o mesmo e execute o comando [npm install](https://docs.npmjs.com/cli/v8/commands/npm-install) na pasta raiz do projeto para instalar as dependencias. Pule para o [passo 11](#CriandoBDMySQL).
+Os passos a seguir ensinam como criar e configurar todo o nosso projeto a partir do 0. Sugerimos fortemente seguir o passo a passo para aqueles que não conhecem como criar um projeto NodeJS e configurar dependências externas via NPM. Para aqueles que já tem esse conhecimento podem baixar o projeto [aqui](./project/sequelize-sample-initial.zip). Para executar o projeto descompacte o mesmo e execute o comando [npm install](https://docs.npmjs.com/cli/v8/commands/npm-install) na pasta raiz do projeto para instalar as dependências. Pule para o [passo 11](#CriandoBDMySQL).
 
 1. Abra o prompt de comando (cmd) utilizando as teclas Windows + R e execute o comando: cmd e clique no botão OK
 ![](./Images/0.png "")
@@ -87,7 +87,7 @@ cd <caminho para pasta desejada>
 mkdir sequelize-sample
 ```
 Esse comando criará a pasta sequelize-sample que conterá todos o código deste módulo.
-Acesse o windows explorer e verifique se a pasta foi criada no local desejado.
+Acesse o Windows explorer e verifique se a pasta foi criada no local desejado.
 
 ![](./Images/2.png "")
 
@@ -160,7 +160,7 @@ Agora que instalamos as dependências vamos realizar a conexão entre o banco de
 Neste ponto já realizamos todas instalações e configurações necessárias. Agora vamos realizar nossa primeira conexão entre nosso projeto em NodeJs e um banco de dados MySQL. Mas para conseguirmos esse objetivo, primeiro precisamos criar um banco de dados no MySQL e para isso, utilizaremos o cliente de banco de dados chamado Workbench.
 
 11. [Certifique-se que MySQL esteja em execução.](https://www.tutorialspoint.com/starting-and-stopping-mysql-server) 
-12. Para conectar no banco de dados é necessário ter as credencias de acesso (usuário e senha). Essas credencias são definidas no momento de instalação do MySQL. Caso não as tenha, acesse o link referente ao seu sistema operacional e realize os passos para definir uma nova senha:
+12. Para conectar no banco de dados é necessário ter as credencias de acesso (usuário e senha). Essas credenciais são definidas no momento de instalação do MySQL. Caso não as tenha, acesse o link referente ao seu sistema operacional e realize os passos para definir uma nova senha:
 12.1 [Windows](https://www.youtube.com/watch?v=pCuvMvK1-C0)
 12.2 [Linux](https://trendoceans.com/how-to-resolve-cannot-connect-to-database-server-mysql-workbench/)
 12.3 [MAC](https://gist.github.com/zubaer-ahammed/c81c9a0e37adc1cb9a6cdc61c4190f52)
@@ -221,7 +221,7 @@ Explicando linha a linha do código-fonte:
 - As linhas 8 a 14 é chamado o método authenticate a partir do objeto criado anteriormente. Esse método tentará conectar com banco de dados. O authenticate retorna uma promisse. Onde caso a conexão com o banco de dados ocorra corretamente, será executado o código da cláusula then, caso a conexão falhe, será executado o código da cláusula catch.
 ![](./Images/18.png "")
 
-22. Abra a aba de [terminal](https://code.visualstudio.com/docs/terminal/basics#:~:text=To%20open%20the%20terminal%3A,the%20View%3A%20Toggle%20Terminal%20command.) no Visual Studio Code (ctrl + ') para executar o código escrido no passo anterior.
+22. Abra a aba de [terminal](https://code.visualstudio.com/docs/terminal/basics#:~:text=To%20open%20the%20terminal%3A,the%20View%3A%20Toggle%20Terminal%20command.) no Visual Studio Code (ctrl + ') para executar o código descrido no passo anterior.
 23. Escreva o comando a seguir para executar o código NodeJs e pressione a tecla Enter.
 ```
 node app.js
@@ -231,21 +231,21 @@ node app.js
 
 ![](./Images/20.png "")
 
-    24.1. Caso coloquemos um nome de um banco de dados que não existe (indicado pela seta 1 na imagem), não seria possível conectar com o banco de dados já que o mesmo não existe. Logo o código que será executado é da cláusula catch sendo exibido uma mensagem de erro como apresentado na imagem a baixo.
+    24.1. Caso coloquemos um nome de um banco de dados que não existe (indicado pela seta 1 na imagem), não seria possível conectar com o banco de dados já que o mesmo não existe. Logo o código que será executado é da cláusula catch sendo exibido uma mensagem de erro como apresentado na imagem abaixo.
     ![](./Images/21.png "")
     
-    24.2 Outro exemplo de mensagem de erro é caso a senha informada esteja errada (indicado pela seta 1 na imagem) como pode ser visto na imagem a abaixo.
+    24.2 Outro exemplo de mensagem de erro é caso a senha informada esteja errada (indicado pela seta 1 na imagem) como pode ser visto na imagem abaixo.
     ![](./Images/22.png "")
     
 Conseguirmos realizar nossa primeira conexão com banco de dados!!! Agora vamos criar tabelas via nossa aplicação NodeJS.
     ![](./Images/party.webp "")
 
 ### Requisitos de nossa aplicação
-Agora que temos conexão com banco de dados vamos criar nosso esquema de banco de dados por meio do NodeJS. Mas primeiro vamos entender um pouco mais sobre os requisitos da aplicação que vamos construir. Como foi dito, você foi contratado para desenvolver um aplicativo para empresa de ensino em faculdades. Para a primeira entrega foi descrito a seguinte histórias de usuários:
+Agora que temos conexão com banco de dados vamos criar nosso esquema de banco de dados por meio do NodeJS. Mas primeiro vamos entender um pouco mais sobre os requisitos da aplicação que vamos construir. Como foi dito, você foi contratado para desenvolver um aplicativo para empresa de ensino em faculdades. Para a primeira entrega foi descrito a seguintes histórias de usuários:
 
 Eu, como administrador do sistema, quero armazenar o nome e e-mail dos professores e o Departamento dos mesmos. Por sua vez, o departamento deve ter seu nome e sua sigla. Um departamento contem vários professores e um professor pertence única e exclusivamente para um departamento.
 
-Eu, como administrador do sistema, quero armazenar o nome e a caraga horaria das disciplinas. Um professor pode está alocado em várias disciplinas e uma disciplina pode ser alocada para vários professores. Cada alocação de professor a uma disciplina deve ter o horário de início e final das aulas.
+Eu, como administrador do sistema, quero armazenar o nome e a carga horaria das disciplinas. Um professor pode estar alocado em várias disciplinas e uma disciplina pode ser alocada para vários professores. Cada alocação de professor a uma disciplina deve ter o horário de início e final das aulas.
 
 #### <a id="EntendendoRequisitos"></a> Entendendo os requisitos de nossa aplicação
 Ao ler a história de usuário é possível identificar de alguns modelos, são eles:
@@ -317,7 +317,8 @@ const Professor = sequelize.define('Professor', {
   .catch((err) => {console.log("Erro: "+err)});
 
 ```
-Vamos entender o que esse código siginifica:Entre as linhas 16 a 32 consiste em uma chamada do método define para definir um modelo no NodeJS. Como aprendemos, o Sequelize por ser um *framework* ORM mapeará esse modelo automaticamente em uma tabela no banco de dados. Esse método recebe o nome da tabela e um objete que contem o atributo para criar as colunas da tabela. Para mais informações de como definir o modelo via sequelize método acesse a [documentação do sequelize](https://sequelize.org/api/v6/class/src/sequelize.js~sequelize#instance-method-define).
+Vamos entender o que esse código siginifica:
+Entre as linhas 16 a 32 consiste em uma chamada do método define para definir um modelo no NodeJS. Como aprendemos, o Sequelize por ser um *framework* ORM mapeará esse modelo automaticamente em uma tabela no banco de dados. Esse método recebe o nome da tabela e um objete que contem o atributo para criar as colunas da tabela. Para mais informações de como definir o modelo via sequelize método acesse a [documentação do sequelize](https://sequelize.org/api/v6/class/src/sequelize.js~sequelize#instance-method-define).
 
 Entre as linhas 34 a 36 consiste no método sync que sincroniza todos os modelos definidos com o banco de dados. Novamente esse método retorna um promisse. Sendo assim, caso a sincronização ocorra com sucesso será executado o código da cláusula then. Caso ocorra algum problema de sincronização será executado o código da cláusula catch.
 ![](./Images/24.png "")
@@ -329,8 +330,8 @@ node app.js
 Na aba terminal é retornado um *script* DDL gerado automaticamente de Sequelize para criação da tabela Professor.
 ![](./Images/25.png "")
 
-27. Ao abrir Workbench clique no ícone de atualização (destacado pela seta 1 na imagem). Clique em Tabelas (destacado pela seta 2 na imagem). Clique na tabela professor e clique em Columns (destacado pela seta 3 na imagem). Repare que a tabela possui 5 colunas apesar de termos definido apenas 2 (nome e email). Isso ocorre, pois o Sequelize criar automaticamente define essas três colunas para todas as tabelas. A seguir são descritos os objetivos de cada coluna:
-- A coluna id é a chave primaria da tabela e já possui auto incremento configurado.
+27. Ao abrir Workbench clique no ícone de atualização (destacado pela seta 1 na imagem). Clique em Tabelas (destacado pela seta 2 na imagem). Clique na tabela professor e clique em Columns (destacado pela seta 3 na imagem). Repare que a tabela possui 5 colunas apesar de termos definido apenas 2 (nome e e-mail). Isso ocorre, pois o Sequelize criar automaticamente define essas três colunas para todas as tabelas. A seguir são descritos os objetivos de cada coluna:
+- A coluna id é a chave primaria da tabela e já possui autoincremento configurado.
 - A coluna *createdAt* é uma coluna que armazena da data e hora da criação do registro na tabela.
 - A coluna *updatedAt* é uma coluna que armazena da data e hora da última atualização do registro na tabela.
 
@@ -421,9 +422,9 @@ Agora que temos as tabelas precisamos definir o relacionamento entre elas.
 ```
 O código a seguir define os relacionamentos citados sessão que [explicamos os requisitos](#EntendendoRequisitos), onde:
 
-- Um departamento tem muitos professores (método has many indicando a cardinalidade máxima N) e o campo allowNull false do objeto foreignKey não permite a criação de um professor sem um departamento associado (indicando assim a cardinalidade mínima 1).
+- Um departamento tem muitos professores (método hasMany indicando a cardinalidade máxima N) e o campo allowNull false do objeto foreignKey não permite a criação de um professor sem um departamento associado (indicando assim a cardinalidade mínima 1).
 
-- A associação belongsToMany utilizada entre professor e disciplina indica o relacionamento N:M entre essas duas atividades por meio da tabela-relacionamento Alocacao. Para mais informações sobre as associação entre tabelas acesse a documentação do [Sequelize](https://sequelize.org/docs/v6/core-concepts/assocs/).
+- A associação belongsToMany utilizada entre professor e disciplina indica o relacionamento N:M entre essas duas atividades por meio da tabela-relacionamento Alocacao. Para mais informações sobre associações entre tabelas acesse a documentação do [Sequelize](https://sequelize.org/docs/v6/core-concepts/assocs/).
 ![](./Images/29.png "")
 
 31. Execute novamente o comando:
@@ -433,7 +434,7 @@ node app.js
 Ao executar o comando será realizado a instanciação dos modelos com seus respectivos relacionamentos. Ao executar o método sync será realizada o *script* de DROP que destruirá as tabelas existentes no banco (destacado pela seta 1 na imagem) e reconstruirá as tabelas com as respectivas chaves estrangeiras (destacadas pelas setas 2, 3 e 4 na imagem).
 ![](./Images/30.png "")
 
-32. Abra o Workbench e clique no ícone de atualização (destacado pela seta 1 na imagem). Ao expandir a tabela alocação (destacado pela seta 2 na imagem) é possível visualizar duas novas colunas ProfessorId e DisiciplinaId (destacado pela seta 3 na imagem) e, além disso, as restrições (*constraints*) de chave estrangeiras para essa duas colunas (destacado pela seta 4 na imagem). O mesmo ocorre para a tabela professor (destacado pela seta 6 na imagem) que possui uma nova coluna chamada DepartamentoId (destacado pela seta 7 na imagem) que possui uma restrição de chave estrangeira para tabela Departamento.
+32. Abra o Workbench e clique no ícone de atualização (destacado pela seta 1 na imagem). Ao expandir a tabela alocação (destacado pela seta 2 na imagem) é possível visualizar duas novas colunas ProfessorId e DisiciplinaId (destacado pela seta 3 na imagem) e, além disso, as restrições (*constraints*) de chave estrangeiras para essas duas colunas (destacado pela seta 4 na imagem). O mesmo ocorre para a tabela professor (destacado pela seta 6 na imagem) que possui uma nova coluna chamada DepartamentoId (destacado pela seta 7 na imagem) que possui uma restrição de chave estrangeira para tabela Departamento.
 
 
 ![](./Images/31.png "")
@@ -454,10 +455,10 @@ O exercício consiste em expandir o exemplo construído durando o módulo. Caso 
 
 Implemente os novos requisitos:
 - Eu, como administrador do sistema, quero de cadastrar alunos, que possuem os seguintes campos: nome, data de nascimento, data de matrícula na instituição da faculdade.
-- Eu, como administrador do sistema, quero matricular os alunos em disciplina e cada matrícula deve ter o ano e semestre da matrícula e sua notas da primeira e da segunda prova.
-- Eu, como administrador do sistema, quero cadastrar um responsável de departamento. Esse responsável deve ter nome, matricula e data de contratação. Um departamento deve ter um único responsável e um responsável deve responder um único departamento.
+- Eu, como administrador do sistema, quero matricular os alunos em disciplina e cada matrícula deve ter o ano e semestre da matrícula e suas notas da primeira e da segunda prova.
+- Eu, como administrador do sistema, quero cadastrar um responsável de departamento. Esse responsável deve ter nome, matrícula e data de contratação. Um departamento deve ter um único responsável e um responsável deve responder um único departamento.
 
-Pense em quais modelos existem nessa novas histórias de usuário. Quais são seus campos? Qual tipo de dados de cada campo? Quais são os relacionamentos entre os modelos?
+Pense em quais modelos existem nessas novas histórias de usuário. Quais são seus campos? Qual tipo de dados de cada campo? Quais são os relacionamentos entre os modelos?
 
 #### Gabarito
 [Clique aqui](./project/sequelize-sample-exercicio-gabarito.zip) para ter acesso ao código fonte gabarito do exercício. Para executar o projeto descompacte o mesmo e execute o comando [npm install](https://docs.npmjs.com/cli/v8/commands/npm-install) na pasta raiz do projeto para instalar as dependências.
